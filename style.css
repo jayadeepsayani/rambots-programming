@@ -1,6 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Anta&family=Barlow&family=Kdam+Thmor+Pro&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anta&family=Barlow&family=Kdam+Thmor+Pro&family=Noto+Sans+Mono:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+  --background-color: #f9f9f9; 
+  --reg-text-color: #000;
+  --nav-color: #5F60A2;
+  --scroll-thumb-color: #c1c1c1;
+  --scroll-track-color: #f1f1f1;
+  --scroll-thumb-hover: #787878;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb-color);
+}
+
+::-webkit-scrollbar-thumb:focus {
+  background-color: var(--scroll-thumb-hover);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scroll-track-color);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -9,18 +30,19 @@
 
 body {
   max-height: 100vh;
-  background-color: #f9f9fb;
+  background-color: var(--background-color);
 }
 
 .doc-side {
   width: 25%;
   max-height: calc(100vh - 130px);
   overflow-y: scroll;
-  background-color: #f9f9fb;
+  background-color: var(--background-color);
   display: flex;
   flex-direction: column;
   gap: 1.9rem;
   margin: 30px 0;
+  transition: ease-in-out 0.23s;
 }
 
 .sections-wrapper {
@@ -48,11 +70,12 @@ body {
   font-family: 'Kdam Thmor Pro', sans-serif;
   font-size: 1.3rem;
   letter-spacing: 1.1px;
+  color: var(--reg-text-color);
 }
 
 .top-title-bar {
   height: 70px;
-  background-color: #5F60A2;
+  background-color: var(--nav-color);
   display: flex;
   align-items: center;
   color: #fff;
@@ -68,6 +91,18 @@ body {
   font-weight: bold;
 }
 
+.top-title-bar button {
+  position: absolute;
+  right: 30px;
+  background: transparent;
+  border: none;
+  padding: 10px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  box-shadow: 0 0 4px #000;
+  cursor: pointer;
+}
+
 .top-title-bar h3 {
   margin-left: 30px; 
   font-weight: 500;
@@ -79,7 +114,7 @@ body {
   margin: 0.75rem 0;
   text-decoration: none;
   font-size: 1.05rem;
-  color: #000;
+  color: var(--reg-text-color);
   font-family: 'Kdam Thmor Pro', sans-serif;
   letter-spacing: 1.13px;
   cursor: pointer;
@@ -114,7 +149,7 @@ code {
 .content .doc-title {
   font-family: 'Poppins', sans-serif;
   font-size: 2.35rem;
-  color: #333;
+  color: var(--reg-text-color);
 }
 
 .content .doc-title-text {
@@ -122,20 +157,23 @@ code {
   margin-top: 10px;
   width: 90%;
   line-height: 30px;
+  color: var(--reg-text-color);
 }
 
 .subtitle {
   margin-top: 40px;
   font-family: 'Poppins', sans-serif;
   font-size: 1.75rem;
-  color: #444;
+  color: var(--reg-text-color);
 }
 
 .subtitle-text {
   font-family: 'Poppins', sans-serif;
   margin: 10px 0px;
   width: 90%;
+  color: var(--reg-text-color);
 }
+
 
 .doc-image {
   margin-top: 10px;
@@ -143,6 +181,20 @@ code {
   border-radius: 10px;
 }
 
+.expand {
+  width: 60px;
+  background: #5F60A2;
+  border: none;
+  cursor: pointer;
+  padding: 10px 0;
+  border-radius: 0px 15px 15px 0px;
+  position: absolute;
+  /* display: none; */
+  visibility: hidden;
+  left: 0;
+  top: 180px;
+  transition: ease-in-out 0.23s;
+}
 
 /* @media (prefers-color-scheme: dark) {
   body, .doc-side {
@@ -154,3 +206,30 @@ code {
     color: #fff;
   }
 } */
+
+@media (max-width: 1350px) {
+  .doc-side {
+    /* left: 0; */
+    width: 400px;
+    position: absolute;
+  }
+
+  .expand {
+    visibility: visible;
+  }
+  .content {
+    margin-left: 102px;
+    width: auto;
+  }
+
+  .doc-image {
+    max-width: 300px;
+    height: auto;
+  }
+
+  .teaminfo {
+    display: none;
+  }
+
+  
+}
