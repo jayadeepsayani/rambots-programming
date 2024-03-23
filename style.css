@@ -5,21 +5,6 @@
   --background-color: #f9f9f9; 
   --reg-text-color: #000;
   --nav-color: #5F60A2;
-  --scroll-thumb-color: #c1c1c1;
-  --scroll-track-color: #f1f1f1;
-  --scroll-thumb-hover: #787878;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--scroll-thumb-color);
-}
-
-::-webkit-scrollbar-thumb:focus {
-  background-color: var(--scroll-thumb-hover);
-}
-
-::-webkit-scrollbar-track {
-  background-color: var(--scroll-track-color);
 }
 
 * {
